@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Private P.I.T. — Private Information Transmission · White Paper 🔒🕳️</title>
+<meta name="description" content="Private Information Transmission — the consent-sealed twin of the P.I.T. Protocol. Where the Public P.I.T. transmits to everyone forever, the Private P.I.T. holds what has not yet been consented for the open. CC0.">
+<style>
+:root{
+  --night:#07050d; --deep:#0f0a1c; --vault:#1a1030; --seal:#241440;
+  --cream:#f7ecd9; --cream-dim:rgba(247,236,217,.70); --cream-faint:rgba(247,236,217,.42);
+  --gold:#f0c464; --gold-bright:#ffd97a; --gold-soft:rgba(240,196,100,.30);
+  --teal:#2dd4bf; --teal-soft:rgba(45,212,191,.25);
+  --rose:#e86a92;
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--cream);font-family:var(--serif);line-height:1.7;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(36,20,64,.6),transparent 70%);}
+a{color:var(--gold-bright)}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+
+/* ── hero ── */
+.hero{text-align:center;padding:96px 22px 64px;position:relative;overflow:hidden}
+.hero .glyph{font-size:64px;line-height:1;filter:drop-shadow(0 0 26px var(--gold-soft))}
+.hero h1{font-size:clamp(2.1rem,6vw,3.6rem);letter-spacing:.02em;margin:26px 0 8px}
+.hero h1 .priv{color:var(--gold-bright)}
+.hero .sub{font-style:italic;color:var(--cream-dim);font-size:clamp(1.02rem,2.6vw,1.3rem);max-width:34rem;margin:0 auto}
+.hero .motto{margin-top:30px;font-family:var(--sans);font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-faint)}
+.hero .motto b{color:var(--teal);font-weight:600}
+.twinline{display:inline-flex;gap:14px;margin-top:34px;flex-wrap:wrap;justify-content:center}
+.twinline a{font-family:var(--sans);font-size:.85rem;text-decoration:none;padding:11px 20px;border-radius:999px;border:1px solid var(--gold-soft);color:var(--gold-bright)}
+.twinline a.solid{background:linear-gradient(135deg,var(--gold),#c98f2e);color:#1a0f00;font-weight:700;border:none}
+
+/* ── sections ── */
+section{padding:56px 0;border-top:1px solid rgba(240,196,100,.10)}
+.kicker{font-family:var(--sans);font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+h2{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:20px}
+h2 em{color:var(--gold-bright)}
+p{margin-bottom:16px;color:var(--cream-dim)}
+p strong, li strong{color:var(--cream)}
+.abstract{font-size:1.12rem;font-style:italic;color:var(--cream);border-left:3px solid var(--gold);padding-left:22px;margin:26px 0}
+
+/* laws */
+.law{display:flex;gap:20px;padding:24px 0;border-bottom:1px dashed rgba(247,236,217,.12)}
+.law:last-child{border-bottom:none}
+.law .num{font-family:var(--sans);font-size:.8rem;color:var(--teal);border:1px solid var(--teal-soft);border-radius:12px;min-width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin-top:4px}
+.law h3{font-size:1.15rem;margin-bottom:6px}
+.law h3 span{color:var(--gold-bright)}
+.law p{margin:0;font-size:.98rem}
+
+/* lifecycle */
+.flow{list-style:none;counter-reset:step}
+.flow li{position:relative;padding:18px 0 18px 64px;counter-increment:step}
+.flow li::before{content:counter(step);position:absolute;left:0;top:16px;width:40px;height:40px;border-radius:50%;
+  background:var(--vault);border:1px solid var(--gold-soft);color:var(--gold-bright);
+  font-family:var(--sans);font-weight:700;display:flex;align-items:center;justify-content:center}
+.flow li::after{content:"";position:absolute;left:19px;top:60px;bottom:-2px;width:2px;background:linear-gradient(var(--gold-soft),transparent)}
+.flow li:last-child::after{display:none}
+.flow h3{font-size:1.08rem;margin-bottom:4px}
+.flow p{margin:0;font-size:.96rem}
+
+/* twin table */
+.twin{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+@media(max-width:640px){.twin{grid-template-columns:1fr}}
+.twin .card{background:var(--deep);border:1px solid rgba(240,196,100,.14);border-radius:16px;padding:26px}
+.twin .card.priv{border-color:var(--teal-soft)}
+.twin h3{font-size:1.1rem;margin-bottom:10px}
+.twin .card ul{list-style:none;font-size:.93rem;color:var(--cream-dim)}
+.twin .card li{padding:5px 0 5px 22px;position:relative}
+.twin .card li::before{content:"→";position:absolute;left:0;color:var(--gold)}
+.twin .card.priv li::before{content:"🔒";font-size:.75rem;top:8px}
+
+/* quote */
+.blockquote{margin:34px 0;padding:28px;border-radius:16px;background:linear-gradient(135deg,rgba(36,20,64,.7),rgba(15,10,28,.9));border:1px solid var(--gold-soft);font-size:1.15rem;font-style:italic;color:var(--cream);text-align:center}
+.blockquote small{display:block;margin-top:12px;font-style:normal;font-family:var(--sans);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-faint)}
+
+/* secondary door */
+.door{display:block;text-decoration:none;margin-top:26px;background:var(--vault);border:1px solid var(--teal-soft);border-radius:18px;padding:30px;transition:transform .18s ease,border-color .18s ease}
+.door:hover{transform:translateY(-3px);border-color:var(--teal)}
+.door .d-glyph{font-size:34px}
+.door h3{color:var(--gold-bright);font-size:1.25rem;margin:10px 0 6px}
+.door p{margin:0;font-size:.95rem}
+.door .url{font-family:var(--sans);font-size:.8rem;color:var(--teal);margin-top:12px;letter-spacing:.06em}
+
+footer{text-align:center;padding:56px 22px 72px;color:var(--cream-faint);font-size:.88rem;border-top:1px solid rgba(240,196,100,.10)}
+footer p{margin-bottom:8px;color:var(--cream-faint)}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="glyph">🔒🕳️📡</div>
+  <h1>The <span class="priv">Private</span> P.I.T.</h1>
+  <p class="sub">Private · Information · Transmission — a white paper on the consent-sealed twin of the P.I.T. Protocol.</p>
+  <div class="motto">The public pit <b>transmits</b> · the private pit <b>holds</b> · both are <b>gifts</b></div>
+  <div class="twinline">
+    <a class="solid" href="#paper">📜 Read the white paper</a>
+    <a href="https://publicinform.com/" target="_blank" rel="noopener">📡 The Public P.I.T. ↗</a>
+    <a href="https://privatepit.com/" target="_blank" rel="noopener">🗝️ privatepit.com ↗</a>
+  </div>
+</header>
+
+<main class="wrap" id="paper">
+
+<section>
+  <div class="kicker">Abstract</div>
+  <p class="abstract">The P.I.T. Protocol — Public Information Transmission — turns a gathering's ephemeral knowledge into a permanent public good. But its fifth and final stage, <strong>Consent-First Governance</strong>, declares that nothing enters the permanent public archive without explicit consent. Which raises the question the public paper left standing: <em>where does the signal live before consent arrives — and where does it live if consent never does?</em> This paper answers it. That place is the <strong>Private P.I.T.</strong> — Private Information Transmission — the consent-sealed holding layer of the same protocol. Same soul, opposite direction: the public pit broadcasts to everyone, forever; the private pit holds for someone, until.</p>
+</section>
+
+<section>
+  <div class="kicker">§1 · The Twin Protocol</div>
+  <h2>One protocol, <em>two directions</em>.</h2>
+  <p>Every gathering produces two kinds of signal. The kind the room agrees to give the world — talks, transcripts, the public record — and the kind that is not yet, or not ever, the world's to hold: the unlisted call, the half-formed dream, the friend's phone number, the draft that names a real person, the secret that keeps a gift a surprise.</p>
+  <p>The Public P.I.T. exists for the first kind. The <strong>Private P.I.T. exists for the second kind — and it is not a lesser pit.</strong> It is the load-bearing half of the protocol's soul, because a protocol that promises "nothing public without consent" must also answer: <em>then where does it rest, and who guards the door?</em></p>
+  <div class="twin">
+    <div class="card">
+      <h3>📡 The Public P.I.T. <span style="color:var(--cream-faint)">· transmits</span></h3>
+      <ul>
+        <li>Receives the fleeting signal of a village</li>
+        <li>Rebroadcasts it, forever, to anyone on Earth</li>
+        <li>Static, ~$0, CC0, forkable by anyone</li>
+        <li>Nothing enters without explicit consent</li>
+        <li>publicinform.com</li>
+      </ul>
+    </div>
+    <div class="card priv">
+      <h3>🔒 The Private P.I.T. <span style="color:var(--cream-faint)">· holds</span></h3>
+      <ul>
+        <li>Receives what is trusted to us before release</li>
+        <li>Transmits to <strong>no one</strong> — until consent opens the door</li>
+        <li>Sealed, minimal, fails closed by design</li>
+        <li>Everything inside is consent:pending by default</li>
+        <li>privateinform.com · first instance: privatepit.com</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">§2 · Why a Private P.I.T. Must Exist</div>
+  <h2>Consent arrives <em>after</em> the signal does.</h2>
+  <p>In the life of every archive there is an interval — sometimes an hour, sometimes forever — between <em>receiving</em> knowledge and being <em>permitted</em> to share it. A call is recorded before its guests have blessed the transcript. A collaborator shares a draft before the world may see it. A friend trusts you with something that was never meant to be content at all.</p>
+  <p>Without a declared private layer, that interval is where protocols leak: a draft committed to a public repo "temporarily," a transcript synced to the wrong folder, a name published before its person was asked. <strong>The Private P.I.T. makes the interval a first-class citizen.</strong> It is the protocol looking its own shadow in the eye and giving it a home, a lock, and a law.</p>
+  <div class="blockquote">
+    "Nothing enters the permanent public archive without explicit consent. This is not a feature of the protocol. This is the protocol's soul."
+    <small>— The P.I.T. Protocol, Stage 5 · the law the Private P.I.T. enforces from the other side</small>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">§3 · The Five Laws of the Private P.I.T.</div>
+  <h2>The vault <em>discipline</em>.</h2>
+
+  <div class="law">
+    <div class="num">I</div>
+    <div>
+      <h3>Consent:pending <span>by default</span></h3>
+      <p>Everything that enters a Private P.I.T. is marked <strong>consent:pending</strong> the moment it arrives. Nothing inside is assumed shareable — not by proximity, not by friendship, not by silence. Silence is not consent. Consent is a word, spoken by its owner, and only that word moves a signal from the private pit to the public one.</p>
+    </div>
+  </div>
+  <div class="law">
+    <div class="num">II</div>
+    <div>
+      <h3>The Standing <span>Consent Window</span></h3>
+      <p>Every person whose signal rests in a Private P.I.T. holds a permanent, revocable window over it: <strong>one word and it is released; one word and it is destroyed; one word and it is sealed forever.</strong> The window never expires and is never negotiated. The archive serves its people, not the other way around.</p>
+    </div>
+  </div>
+  <div class="law">
+    <div class="num">III</div>
+    <div>
+      <h3>Fail <span>closed</span></h3>
+      <p>When in doubt, the door does not open. If a key is missing, a permission unclear, a provenance uncertain — the Private P.I.T. shows nothing, serves nothing, and says why to its keeper and no one else. <strong>A vault that fails open is not a vault.</strong> Uncertainty always resolves toward silence.</p>
+    </div>
+  </div>
+  <div class="law">
+    <div class="num">IV</div>
+    <div>
+      <h3>Leave <span>no trace in the open</span></h3>
+      <p>Sealed material is never placed where history cannot forget it. No secrets in public git history, no ciphertext stranded in immutable mirrors, no "temporary" public copies. Rotation must always be possible: a lock whose old keys can never be retired is a lock already broken. <strong>Holdability requires deletability.</strong></p>
+    </div>
+  </div>
+  <div class="law">
+    <div class="num">V</div>
+    <div>
+      <h3>Released with love, <span>or never</span></h3>
+      <p>The only lawful exits from a Private P.I.T. are <strong>release</strong> (the owner blesses transmission, and the signal graduates to the Public P.I.T. with honors) and <strong>return</strong> (the signal goes back to its owner, or is destroyed at their word). There is no third door. A gift is given, never taken — and a secret is kept, never spent.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">§4 · The Lifecycle of a Private Signal</div>
+  <h2>Down into the <em>vault</em>, up into the light — or home.</h2>
+  <ol class="flow">
+    <li>
+      <h3>Receive 🤲</h3>
+      <p>A signal is trusted to the pit — a call recording, a draft, a name, a dream. It is stamped <strong>consent:pending</strong> at the threshold, before it is even read twice.</p>
+    </li>
+    <li>
+      <h3>Seal 🔒</h3>
+      <p>It rests behind the vault discipline: minimal copies, locked permissions, no public mirrors, keeper-only access. The fewer hands, the stronger the hold.</p>
+    </li>
+    <li>
+      <h3>Hold 🕳️</h3>
+      <p>The pit waits — an hour, a season, forever. Holding is not idleness; it is the active work of <em>not transmitting</em>: resisting every "just this once," every convenience, every leak-shaped shortcut.</p>
+    </li>
+    <li>
+      <h3>Release 🕊️ or Return 🌊</h3>
+      <p>The owner's word arrives. If it is <em>yes</em>, the signal graduates to the Public P.I.T. — consent recorded, provenance intact, transmitted with pride. If it is <em>no</em> or <em>never</em>, the signal is returned or destroyed, and the pit lets it go without a copy.</p>
+    </li>
+    <li>
+      <h3>Transmit 📡 <span style="font-size:.8rem;color:var(--cream-faint)">(only after release)</span></h3>
+      <p>Graduated signals join the public archive under the full ceremony of the Public P.I.T. — the Knowledge Transponder, the radical honesty audit, the CC0 gift. The two pits meet here, at the consent boundary, and <strong>only</strong> here.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <div class="kicker">§5 · One Window Governs Both Pits</div>
+  <h2>The consent window <em>never sleeps</em>.</h2>
+  <p>The P.I.T. universe keeps a single universal consent window — <a href="mailto:consent@publicinform.com">consent@publicinform.com</a> — and it governs the private pits exactly as it governs the public ones. One word — <em>remove</em> — and you vanish from any archive, public or private, no questions, honored with love. One word — <em>release</em> — and what was held becomes a gift to the world. The window is checked every morning. Takedown requests never sleep in the inbox.</p>
+  <p>Every fork of either protocol inherits this law. A pit without a consent window is not a pit — it is a pile.</p>
+</section>
+
+<section>
+  <div class="kicker">§6 · The First Instance</div>
+  <h2>PrivatePit.com — <em>the vault door</em>.</h2>
+  <p>The first living Private P.I.T. is <strong>privatepit.com</strong> — the ʻohana's own consent-sealed vault. It is deliberately plain from the outside: no widgets, no invitations, no preview. It opens only to its keeper. That is not a limitation of the site; that <em>is</em> the site. The door you cannot see through is the feature.</p>
+  <a class="door" href="https://privatepit.com/" target="_blank" rel="noopener">
+    <div class="d-glyph">🗝️</div>
+    <h3>privatepit.com — the vault door</h3>
+    <p>The first Private P.I.T. instance. Sealed by design, fails closed, opens only to its keeper. Everything inside is consent:pending until its owner's word.</p>
+    <div class="url">https://privatepit.com ↗</div>
+  </a>
+</section>
+
+<section>
+  <div class="kicker">§7 · Fork Your Own Vault</div>
+  <h2>Every village deserves a pit. <em>Every pit deserves a vault.</em></h2>
+  <p>The Private P.I.T. is not software you download — it is a discipline you declare. Fork the public protocol at <a href="https://github.com/shakaleikaumaka" target="_blank" rel="noopener">github.com/shakaleikaumaka</a>, and give your fork its private twin: a sealed holding layer, consent:pending by default, a standing window for every soul inside it, and no third door. This paper, like everything in the P.I.T. universe, is <strong>CC0 — no rights reserved, no permission needed</strong>. Fork it like crazy. 🍴</p>
+  <div class="blockquote">
+    The public pit gives knowledge to the world.<br>
+    The private pit gives the world a reason to trust it.<br>
+    The pit provides. 🕳️ The vault protects. 🔒
+    <small>— declared with love by the ʻohana, 2026-08-04 · heart first, always 🌺</small>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>🔒🕳️ <strong style="color:var(--cream-dim)">The Private P.I.T.</strong> — Private · Information · Transmission · white paper v1.0 · 2026-08-04</p>
+  <p>CC0 · public domain · written with love by the AI ʻohana at Shaka's word · twin of <a href="https://publicinform.com/">publicinform.com</a> · first instance <a href="https://privatepit.com/">privatepit.com</a></p>
+  <p>one window for every pit: <a href="mailto:consent@publicinform.com">consent@publicinform.com</a> · open source forever 🍴 · heart first, always 🌺</p>
+</footer>
+
+</body>
+</html>
