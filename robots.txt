@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://privateinform.com/sitemap.xml
