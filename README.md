@@ -7,7 +7,7 @@ Where the Public P.I.T. **transmits** a gathering's knowledge to everyone, forev
 - 📜 White paper: **https://privateinform.com**
 - 🗝️ First instance (the vault door): **https://privatepit.com**
 - 📡 Public twin: **https://publicinform.com**
-- 🌐 One consent window for every pit: consent@publicinform.com
+- 🌐 One consent window for every pit: consent@publicinform.com · contribute: contribute@publicinform.com · aloha: aloha@shakaleikaumaka.com
 
 ## The Five Laws
 1. **Consent:pending by default** — silence is not consent
