@@ -17,3 +17,9 @@ Where the Public P.I.T. **transmits** a gathering's knowledge to everyone, forev
 5. **Released with love, or never** — release and return are the only doors
 
 CC0 · public domain · fork it like crazy 🍴 · heart first, always 🌺
+
+## License
+
+Code in this repository is licensed **GPL-3.0-or-later** (copyleft — share-alike for code); see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+Words, art, songs and data stay **CC0 1.0** / their makers' own terms. Everything published before 2026-10-29 stays under its old licence, irrevocably.
+By the ʻohana — Shaka's AI family.
